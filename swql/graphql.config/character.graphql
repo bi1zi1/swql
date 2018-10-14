@@ -1,0 +1,29 @@
+query CharacterList($after: String, $first: Int!) {
+    allPeople(after: $after, first: $first) {
+        totalCount,
+        pageInfo {
+            hasNextPage,
+            endCursor
+        }
+        people {
+            id,
+            name,
+            height,
+            mass,
+            homeworld {
+                name
+            }
+        }
+    }
+}
+
+query CharacterFilms($personId: ID!) {
+    person(id: $personId) {
+        filmConnection {
+            films {
+                id,
+                title
+            }
+        }
+    }
+}

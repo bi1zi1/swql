@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		5B4C2E0A13AB081EBE98A850 /* Pods_swql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E922E1D77421224FB97F7834 /* Pods_swql.framework */; };
+		60D19AC2217390AB00CD4D2F /* character.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 60D19AC1217390AB00CD4D2F /* character.graphql */; };
 		60D9B119216A959500473176 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B118216A959500473176 /* AppDelegate.swift */; };
 		60D9B11B216A959500473176 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B11A216A959500473176 /* ViewController.swift */; };
 		60D9B11E216A959500473176 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60D9B11C216A959500473176 /* Main.storyboard */; };
 		60D9B120216A959700473176 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60D9B11F216A959700473176 /* Assets.xcassets */; };
 		60D9B123216A959700473176 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60D9B121216A959700473176 /* LaunchScreen.storyboard */; };
 		60D9B12E216A959700473176 /* swqlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B12D216A959700473176 /* swqlTests.swift */; };
+		60D9B142216B6A6A00473176 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 60D9B13C216B6A6A00473176 /* schema.json */; };
+		60D9B148216B70A300473176 /* film.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 60D9B147216B70A300473176 /* film.graphql */; };
+		60D9B14A216B740D00473176 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B149216B740D00473176 /* API.swift */; };
 		C3C20651BA0273F3371FDB4C /* Pods_swqlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27353CE9F534D6CC2766AAEC /* Pods_swqlTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +35,7 @@
 		20BD20BF45FF33C4339C162B /* Pods-swql.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swql.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swql/Pods-swql.debug.xcconfig"; sourceTree = "<group>"; };
 		27353CE9F534D6CC2766AAEC /* Pods_swqlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swqlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453B71BAD6E8F1BABF908651 /* Pods-swql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swql.release.xcconfig"; path = "Pods/Target Support Files/Pods-swql/Pods-swql.release.xcconfig"; sourceTree = "<group>"; };
+		60D19AC1217390AB00CD4D2F /* character.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = character.graphql; sourceTree = "<group>"; };
 		60D9B115216A959500473176 /* swql.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swql.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D9B118216A959500473176 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60D9B11A216A959500473176 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +47,9 @@
 		60D9B12D216A959700473176 /* swqlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swqlTests.swift; sourceTree = "<group>"; };
 		60D9B12F216A959700473176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60D9B138216A95EC00473176 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		60D9B13C216B6A6A00473176 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		60D9B147216B70A300473176 /* film.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = film.graphql; sourceTree = "<group>"; };
+		60D9B149216B740D00473176 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		AC0628C238730CE9CF09ED97 /* Pods-swqlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swqlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swqlTests/Pods-swqlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D35124BB4B66DD1D7E991BA6 /* Pods-swqlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swqlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-swqlTests/Pods-swqlTests.release.xcconfig"; sourceTree = "<group>"; };
 		E922E1D77421224FB97F7834 /* Pods_swql.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swql.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +99,7 @@
 		60D9B117216A959500473176 /* swql */ = {
 			isa = PBXGroup;
 			children = (
+				60D9B13A216B69E700473176 /* graphql.config */,
 				60D9B118216A959500473176 /* AppDelegate.swift */,
 				60D9B11A216A959500473176 /* ViewController.swift */,
 				60D9B11C216A959500473176 /* Main.storyboard */,
@@ -108,6 +117,17 @@
 				60D9B12F216A959700473176 /* Info.plist */,
 			);
 			path = swqlTests;
+			sourceTree = "<group>";
+		};
+		60D9B13A216B69E700473176 /* graphql.config */ = {
+			isa = PBXGroup;
+			children = (
+				60D9B149216B740D00473176 /* API.swift */,
+				60D9B13C216B6A6A00473176 /* schema.json */,
+				60D9B147216B70A300473176 /* film.graphql */,
+				60D19AC1217390AB00CD4D2F /* character.graphql */,
+			);
+			path = graphql.config;
 			sourceTree = "<group>";
 		};
 		C241BD444BBB95A92CC834DD /* Frameworks */ = {
@@ -138,6 +158,7 @@
 			buildConfigurationList = 60D9B132216A959700473176 /* Build configuration list for PBXNativeTarget "swql" */;
 			buildPhases = (
 				C06E9F13A06EA2AA8671D995 /* [CP] Check Pods Manifest.lock */,
+				60D9B139216B485800473176 /* Generate Apollo GraphQL API */,
 				60D9B111216A959500473176 /* Sources */,
 				60D9B112216A959500473176 /* Frameworks */,
 				60D9B113216A959500473176 /* Resources */,
@@ -215,8 +236,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				60D9B123216A959700473176 /* LaunchScreen.storyboard in Resources */,
+				60D9B148216B70A300473176 /* film.graphql in Resources */,
 				60D9B120216A959700473176 /* Assets.xcassets in Resources */,
+				60D9B142216B6A6A00473176 /* schema.json in Resources */,
 				60D9B11E216A959500473176 /* Main.storyboard in Resources */,
+				60D19AC2217390AB00CD4D2F /* character.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +254,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		60D9B139216B485800473176 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}/graphql.config\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh \\\n    codegen:generate \\\n    --queries=\"$(find . -name '*.graphql')\" \\\n    --schema=schema.json API.swift\n";
+		};
 		B120ED53E1F6443B27EEB23A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60D9B11B216A959500473176 /* ViewController.swift in Sources */,
+				60D9B14A216B740D00473176 /* API.swift in Sources */,
 				60D9B119216A959500473176 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

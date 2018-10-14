@@ -1,0 +1,51 @@
+query FilmList {
+    allFilms {
+        films {
+            id,
+            title,
+            director,
+            releaseDate
+        }
+    }
+}
+
+query FilmIntro($filmId: ID!) {
+    film(id: $filmId) {
+        id,
+        title,
+        director,
+        releaseDate,
+        episodeID,
+        openingCrawl
+    }
+}
+
+query FilmSpecies($filmId: ID!) {
+    film(id: $filmId) {
+        speciesConnection {
+            species {
+                name,
+                classification,
+                designation,
+                homeworld {
+                    id
+                }
+            }
+        }
+    }
+}
+
+query FilmCharacters($filmId: ID!) {
+    film(id: $filmId) {
+        characterConnection {
+            characters {
+                name,
+                height,
+                mass,
+                homeworld {
+                    name
+                }
+            }
+        }
+    }
+}
