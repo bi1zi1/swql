@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		5B4C2E0A13AB081EBE98A850 /* Pods_swql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E922E1D77421224FB97F7834 /* Pods_swql.framework */; };
 		60D19AC2217390AB00CD4D2F /* character.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 60D19AC1217390AB00CD4D2F /* character.graphql */; };
+		60D19AC72173C21000CD4D2F /* FilmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D19AC62173C21000CD4D2F /* FilmClient.swift */; };
+		60D19AC92173C25400CD4D2F /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D19AC82173C25400CD4D2F /* NetworkConfig.swift */; };
+		60D19ACB2173C3F700CD4D2F /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D19ACA2173C3F700CD4D2F /* NetworkClient.swift */; };
+		60D19ACD2173D87D00CD4D2F /* CharacterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D19ACC2173D87D00CD4D2F /* CharacterClient.swift */; };
+		60D19ACF2173E61C00CD4D2F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D19ACE2173E61C00CD4D2F /* NetworkError.swift */; };
 		60D9B119216A959500473176 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B118216A959500473176 /* AppDelegate.swift */; };
 		60D9B11B216A959500473176 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D9B11A216A959500473176 /* ViewController.swift */; };
 		60D9B11E216A959500473176 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60D9B11C216A959500473176 /* Main.storyboard */; };
@@ -36,6 +41,11 @@
 		27353CE9F534D6CC2766AAEC /* Pods_swqlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swqlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453B71BAD6E8F1BABF908651 /* Pods-swql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swql.release.xcconfig"; path = "Pods/Target Support Files/Pods-swql/Pods-swql.release.xcconfig"; sourceTree = "<group>"; };
 		60D19AC1217390AB00CD4D2F /* character.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = character.graphql; sourceTree = "<group>"; };
+		60D19AC62173C21000CD4D2F /* FilmClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmClient.swift; sourceTree = "<group>"; };
+		60D19AC82173C25400CD4D2F /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		60D19ACA2173C3F700CD4D2F /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		60D19ACC2173D87D00CD4D2F /* CharacterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterClient.swift; sourceTree = "<group>"; };
+		60D19ACE2173E61C00CD4D2F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		60D9B115216A959500473176 /* swql.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swql.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D9B118216A959500473176 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60D9B11A216A959500473176 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +85,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60D19AC42173C11200CD4D2F /* GraphQLNetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				60D19AC82173C25400CD4D2F /* NetworkConfig.swift */,
+				60D19ACE2173E61C00CD4D2F /* NetworkError.swift */,
+				60D19ACA2173C3F700CD4D2F /* NetworkClient.swift */,
+				60D19AC62173C21000CD4D2F /* FilmClient.swift */,
+				60D19ACC2173D87D00CD4D2F /* CharacterClient.swift */,
+			);
+			path = GraphQLNetworkClient;
+			sourceTree = "<group>";
+		};
 		60D9B10C216A959500473176 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				60D9B13A216B69E700473176 /* graphql.config */,
+				60D19AC42173C11200CD4D2F /* GraphQLNetworkClient */,
 				60D9B118216A959500473176 /* AppDelegate.swift */,
 				60D9B11A216A959500473176 /* ViewController.swift */,
 				60D9B11C216A959500473176 /* Main.storyboard */,
@@ -334,8 +357,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				60D9B11B216A959500473176 /* ViewController.swift in Sources */,
+				60D19ACF2173E61C00CD4D2F /* NetworkError.swift in Sources */,
+				60D19AC92173C25400CD4D2F /* NetworkConfig.swift in Sources */,
+				60D19AC72173C21000CD4D2F /* FilmClient.swift in Sources */,
 				60D9B14A216B740D00473176 /* API.swift in Sources */,
 				60D9B119216A959500473176 /* AppDelegate.swift in Sources */,
+				60D19ACB2173C3F700CD4D2F /* NetworkClient.swift in Sources */,
+				60D19ACD2173D87D00CD4D2F /* CharacterClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
