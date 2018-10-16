@@ -22,7 +22,7 @@ extension NetworkClient {
 
     enum Result<T> {
         case success(T)
-        case failure(Error)
+        case failure(NetworkError)
     }
 
     struct Paged<S> where S: Sequence {

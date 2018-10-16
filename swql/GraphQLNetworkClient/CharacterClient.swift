@@ -9,67 +9,76 @@
 import Foundation
 import Apollo
 
-class CharacterClient: NetworkClient {
+final class CharacterClient: NetworkClient {
     typealias Characters = [CharacterListQuery.Data.AllPerson.Person]
     typealias CharactersPaged = Paged<Characters>
-    func characters(start: Cursor, batchSize: Int, completion: @escaping (Result<CharactersPaged>) -> Void) {
+    @discardableResult
+    func characters(start: Cursor, batchSize: Int,
+                    completion: @escaping (Result<CharactersPaged>) -> Void) -> Cancellable {
+        
         guard batchSize > 0 else {
             preconditionFailure("Batch size must always be greater then zero")
         }
-        apollo.fetch(query: CharacterListQuery(after: start, first: batchSize),
-                     cachePolicy: .returnCacheDataElseFetch,
-                     queue: DispatchQueue.global(qos: .background)) { (gqlResult, error) in
 
-                        let response: Result<CharactersPaged>
-                        defer {
-                            completion(response)
-                        }
+        return apollo
+            .fetch(query: CharacterListQuery(after: start, first: batchSize),
+                   cachePolicy: .returnCacheDataElseFetch,
+                   queue: DispatchQueue.global(qos: .background)) { (gqlResult, error) in
 
-                        if let error = error {
-                            response = .failure(NetworkError(error))
-                            return
-                        }
+                    let response: Result<CharactersPaged>
+                    defer {
+                        completion(response)
+                    }
 
-                        guard let charactersData = gqlResult?.data?.allPeople,
-                            let totalCount = charactersData.totalCount,
-                            let cursor = charactersData.pageInfo.endCursor,
-                            let characters = charactersData.people else {
+                    if let error = error {
+                        response = .failure(NetworkError(error))
+                        return
+                    }
+
+                    guard let charactersData = gqlResult?.data?.allPeople,
+                        let totalCount = charactersData.totalCount,
+                        let cursor = charactersData.pageInfo.endCursor,
+                        let characters = charactersData.people else {
 
                             response = .failure(NetworkError(NetworkError.noData))
                             return
-                        }
+                    }
 
-                        let result = CharactersPaged(totalCount: totalCount,
-                                                     hasNext: charactersData.pageInfo.hasNextPage,
-                                                     cursor: cursor,
-                                                     characters: characters.compactMap({$0}))
+                    let result = CharactersPaged(totalCount: totalCount,
+                                                 hasNext: charactersData.pageInfo.hasNextPage,
+                                                 cursor: cursor,
+                                                 characters: characters.compactMap({$0}))
 
-                        response = .success(result)
+                    response = .success(result)
         }
     }
 
     typealias Films = [CharacterFilmsQuery.Data.Person.FilmConnection.Film]
-    func films(characterId: GraphQLID, completion: @escaping (Result<Films>) -> Void) {
-        apollo.fetch(query: CharacterFilmsQuery(personId: characterId),
-                     cachePolicy: .returnCacheDataElseFetch,
-                     queue: DispatchQueue.global(qos: .background)) { (gqlResult, error) in
+    @discardableResult
+    func films(characterId: GraphQLID,
+               completion: @escaping (Result<Films>) -> Void) -> Cancellable {
 
-                        let response: Result<Films>
-                        defer {
-                            completion(response)
-                        }
+        return apollo
+            .fetch(query: CharacterFilmsQuery(personId: characterId),
+                   cachePolicy: .returnCacheDataElseFetch,
+                   queue: DispatchQueue.global(qos: .background)) { (gqlResult, error) in
 
-                        if let error = error {
-                            response = .failure(NetworkError(error))
-                            return
-                        }
+                    let response: Result<Films>
+                    defer {
+                        completion(response)
+                    }
 
-                        guard let films = gqlResult?.data?.person?.filmConnection?.films else {
-                            response = .failure(NetworkError.noData)
-                            return
-                        }
+                    if let error = error {
+                        response = .failure(NetworkError(error))
+                        return
+                    }
 
-                        response = .success(films.compactMap({$0}))
+                    guard let films = gqlResult?.data?.person?.filmConnection?.films else {
+                        response = .failure(NetworkError.noData)
+                        return
+                    }
+
+                    response = .success(films.compactMap({$0}))
         }
     }
 }
