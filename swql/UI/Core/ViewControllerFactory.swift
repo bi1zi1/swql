@@ -55,11 +55,11 @@ final class ViewControllerFactory {
         return createFilmDetailsViewController(film: FilmClient.Film(id: filmId))
     }
 
-//    private static func createCharacterListViewController() -> CharacterListViewController {
-//        let controller = CharacterListViewController.instantiate()
-//        let viewModel = CharacterListViewModel()
-//        viewModel.delegate = controller
-//        controller.viewModel = viewModel
-//        return controller
-//    }
+    private static func createCharacterListViewController() -> CharacterListViewController {
+        let controller = CharacterListViewController.instantiate()
+        let viewModel = CharacterListViewModel()
+        viewModel.delegate = controller
+        controller.viewModel = viewModel
+        return controller
+    }
 }

@@ -10,7 +10,8 @@ import Foundation
 import Apollo
 
 final class CharacterClient: NetworkClient {
-    typealias Characters = [CharacterListQuery.Data.AllPerson.Person]
+    typealias Character = CharacterListQuery.Data.AllPerson.Person
+    typealias Characters = [Character]
     typealias CharactersPaged = Paged<Characters>
     @discardableResult
     func characters(start: Cursor, batchSize: Int,

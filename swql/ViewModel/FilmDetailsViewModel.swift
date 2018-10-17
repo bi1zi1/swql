@@ -52,10 +52,10 @@ class FilmDetailsViewModel: ViewModel {
         }
 
         return [
-            FilmDetail(type: .info, title: "Director", value: film.director ?? "n/a"),
-            FilmDetail(type: .info, title: "Release Date", value: film.releaseDate ?? "n/a"),
-            FilmDetail(type: .info, title: "Episode", value: episodeId ?? "n/a"),
-            FilmDetail(type: .action(.species), title: "Species", value: film.id),
+            FilmDetail(type: .info, title: "Director:", value: film.director ?? "n/a"),
+            FilmDetail(type: .info, title: "Release Date:", value: film.releaseDate ?? "n/a"),
+            FilmDetail(type: .info, title: "Episode:", value: episodeId ?? "n/a"),
+//            FilmDetail(type: .action(.species), title: "Species", value: film.id),
             FilmDetail(type: .action(.characters), title: "Characters", value: film.id)
         ]
     }

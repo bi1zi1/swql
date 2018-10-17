@@ -66,12 +66,14 @@ extension FilmDetailsViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
 
         guard let filmDetail = viewModel?.items[indexPath.row] else {
-            assertionFailure("Missing item at indexPath = \(indexPath)")
+            assertionFailure("No item for indexPath = \(indexPath)")
             return
         }
 
-//        let controller = ViewControllerFactory.create(for: .filmDetails(.id(film.id)))
-//        navigationController?.pushViewController(controller, animated: true)
+        if case .action(.characters) = filmDetail.type {
+            let controller = ViewControllerFactory.create(for: .characterList)
+            navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 

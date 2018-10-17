@@ -14,6 +14,10 @@
 		60386F032176931200035698 /* FilmDetailActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F022176931200035698 /* FilmDetailActionTableViewCell.swift */; };
 		60386F052176989200035698 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F042176989200035698 /* ViewController.swift */; };
 		60386F0B2177BBF000035698 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F0A2177BBF000035698 /* ViewControllerFactory.swift */; };
+		60386F132177DD5F00035698 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F122177DD5E00035698 /* CharacterListViewModel.swift */; };
+		60386F152177DD6900035698 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F142177DD6900035698 /* CharacterTableViewCell.swift */; };
+		60386F172177DD7100035698 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F162177DD7100035698 /* CharacterListViewController.swift */; };
+		60386F1A2177E2D500035698 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F192177E2D500035698 /* UIScrollViewExtension.swift */; };
 		60C4B3772176634F005443E2 /* FilmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B3762176634F005443E2 /* FilmListViewModel.swift */; };
 		60C4B379217665A1005443E2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B378217665A1005443E2 /* ViewModel.swift */; };
 		60C4B37B21766F25005443E2 /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */; };
@@ -56,6 +60,10 @@
 		60386F022176931200035698 /* FilmDetailActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailActionTableViewCell.swift; sourceTree = "<group>"; };
 		60386F042176989200035698 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		60386F0A2177BBF000035698 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		60386F122177DD5E00035698 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		60386F142177DD6900035698 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		60386F162177DD7100035698 /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
+		60386F192177E2D500035698 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		60C4B3762176634F005443E2 /* FilmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewModel.swift; sourceTree = "<group>"; };
 		60C4B378217665A1005443E2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,12 +113,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60386F182177E2AA00035698 /* UIKitExtension */ = {
+			isa = PBXGroup;
+			children = (
+				60386F192177E2D500035698 /* UIScrollViewExtension.swift */,
+			);
+			path = UIKitExtension;
+			sourceTree = "<group>";
+		};
 		60C4B37C21766F64005443E2 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
 				60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */,
 				60386F002176922500035698 /* FilmDetailItemTableViewCell.swift */,
 				60386F022176931200035698 /* FilmDetailActionTableViewCell.swift */,
+				60386F142177DD6900035698 /* CharacterTableViewCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -120,6 +137,7 @@
 			children = (
 				60D9B11A216A959500473176 /* FilmListViewController.swift */,
 				60386EFC21768D4400035698 /* FilmDetailsViewController.swift */,
+				60386F162177DD7100035698 /* CharacterListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -168,19 +186,21 @@
 				60C4B38021767045005443E2 /* Core */,
 				60C4B3762176634F005443E2 /* FilmListViewModel.swift */,
 				60386EFE21768D8A00035698 /* FilmDetailsViewModel.swift */,
+				60386F122177DD5E00035698 /* CharacterListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		60D19AE5217516FD00CD4D2F /* View */ = {
+		60D19AE5217516FD00CD4D2F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				60386F182177E2AA00035698 /* UIKitExtension */,
 				60C4B37F21766FCA005443E2 /* Core */,
 				60C4B37E21766FA7005443E2 /* Storyboard */,
 				60C4B37C21766F64005443E2 /* TableCell */,
 				60C4B37D21766F88005443E2 /* ViewController */,
 			);
-			path = View;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		60D9B10C216A959500473176 = {
@@ -210,7 +230,7 @@
 				60D9B13A216B69E700473176 /* graphql.config */,
 				60D19AC42173C11200CD4D2F /* GraphQLNetworkClient */,
 				60D19AE4217516EF00CD4D2F /* ViewModel */,
-				60D19AE5217516FD00CD4D2F /* View */,
+				60D19AE5217516FD00CD4D2F /* UI */,
 				60D19AE62175253E00CD4D2F /* LaunchScreen.storyboard */,
 				60D9B118216A959500473176 /* AppDelegate.swift */,
 				60D9B11F216A959700473176 /* Assets.xcassets */,
@@ -446,9 +466,12 @@
 				60D9B11B216A959500473176 /* FilmListViewController.swift in Sources */,
 				60386EFF21768D8A00035698 /* FilmDetailsViewModel.swift in Sources */,
 				60386F0B2177BBF000035698 /* ViewControllerFactory.swift in Sources */,
+				60386F172177DD7100035698 /* CharacterListViewController.swift in Sources */,
 				60D19ACF2173E61C00CD4D2F /* NetworkError.swift in Sources */,
 				60386EFD21768D4400035698 /* FilmDetailsViewController.swift in Sources */,
 				60D19AC92173C25400CD4D2F /* NetworkConfig.swift in Sources */,
+				60386F1A2177E2D500035698 /* UIScrollViewExtension.swift in Sources */,
+				60386F152177DD6900035698 /* CharacterTableViewCell.swift in Sources */,
 				60C4B379217665A1005443E2 /* ViewModel.swift in Sources */,
 				60D19AC72173C21000CD4D2F /* FilmClient.swift in Sources */,
 				60C4B3772176634F005443E2 /* FilmListViewModel.swift in Sources */,
@@ -460,6 +483,7 @@
 				60C4B37B21766F25005443E2 /* FilmTableViewCell.swift in Sources */,
 				60D19ACB2173C3F700CD4D2F /* NetworkClient.swift in Sources */,
 				60D19ACD2173D87D00CD4D2F /* CharacterClient.swift in Sources */,
+				60386F132177DD5F00035698 /* CharacterListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
