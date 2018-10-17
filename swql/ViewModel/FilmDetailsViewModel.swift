@@ -1,0 +1,100 @@
+//
+//  FilmDetailsViewModel.swift
+//  swql
+//
+//  Created by Aleksandar Mihailovski on 2018-10-16.
+//  Copyright © 2018 Aleksandar Mihailovski. All rights reserved.
+//
+
+import Foundation
+import Apollo
+
+class FilmDetailsViewModel: ViewModel {
+    typealias FilmDetailsError = NetworkError
+
+    struct FilmDetail {
+        enum ActionType {
+            case species
+            case characters
+        }
+        enum FilmDetailType {
+            case info
+            case action(ActionType)
+        }
+        let type: FilmDetailType
+        let title: String
+        let value: String
+    }
+
+    private let filmClient: FilmClient
+    private var filmRequest: Cancellable?
+    private var film: FilmClient.Film {
+        didSet {
+            DispatchQueue.main.async {
+                self.delegate?.didChange(self)
+            }
+        }
+    }
+    weak var delegate: ViewModelDelegate?
+
+    var title: String? {
+        return film.title
+    }
+    var openingCrawl: String? {
+        return film.openingCrawl
+    }
+    var items: [FilmDetail] {
+        let episodeId: String?
+        if let filmEpisodeId = film.episodeId {
+            episodeId = String(filmEpisodeId)
+        } else {
+            episodeId = nil
+        }
+
+        return [
+            FilmDetail(type: .info, title: "Director", value: film.director ?? "n/a"),
+            FilmDetail(type: .info, title: "Release Date", value: film.releaseDate ?? "n/a"),
+            FilmDetail(type: .info, title: "Episode", value: episodeId ?? "n/a"),
+            FilmDetail(type: .action(.species), title: "Species", value: film.id),
+            FilmDetail(type: .action(.characters), title: "Characters", value: film.id)
+        ]
+    }
+
+    convenience init(filmId: GraphQLID, filmClient: FilmClient = FilmClient()) {
+        self.init(film: FilmClient.Film(id: filmId), filmClient: filmClient)
+    }
+
+    init(film: FilmClient.Film, filmClient: FilmClient = FilmClient()) {
+        self.film = film
+        self.filmClient = filmClient
+        fetchFilm()
+    }
+
+    deinit {
+        filmRequest?.cancel()
+    }
+
+    private func fetchFilm() {
+        filmRequest?.cancel()
+        filmRequest = filmClient.film(filmId: film.id) { [weak self] (result) in
+            guard let self = self else {
+                return
+            }
+
+            switch result {
+            case .failure(let error):
+                self.onError(error)
+            case .success(let film):
+                self.onSuccess(film)
+            }
+        }
+    }
+
+    private func onError(_ error: FilmDetailsError) {
+        delegate?.didFail(self, with: error)
+    }
+
+    private func onSuccess(_ film: FilmClient.Film) {
+        self.film = film
+    }
+}

@@ -17,10 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let viewModel = FilmListViewModel()
-        let controller = FilmListViewController.instantiate()
-        controller.viewModel = viewModel
-        viewModel.delegate = controller
+        let controller = ViewControllerFactory.create(for: .filmList)
         let navigationController = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

@@ -11,8 +11,7 @@ import Apollo
 
 final class FilmListViewModel: ViewModel {
     typealias FilmListError = NetworkError
-    typealias ErrorT = FilmListError
-
+    
     private let filmClient: FilmClient
     private var filmsRequest: Cancellable?
     private(set) var films = FilmClient.Films()  {

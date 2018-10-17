@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilmListViewController: UIViewController {
+class FilmListViewController: UIViewController, ViewController {
 
     @IBOutlet weak var tableView: UITableView?
     var viewModel: FilmListViewModel?
@@ -19,10 +19,10 @@ class FilmListViewController: UIViewController {
         tableView?.dataSource = self
         tableView?.delegate = self
 
-        configureApperance()
+        configureAppearance()
     }
 
-    private func configureApperance() {
+    private func configureAppearance() {
         title = "All Films"
     }
 
@@ -47,7 +47,17 @@ extension FilmListViewController: UITableViewDataSource {
 }
 
 extension FilmListViewController: UITableViewDelegate {
-    // TODO: Implement
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+
+        guard let film = viewModel?.films[indexPath.row] else {
+            assertionFailure("Missing film at indexPath = \(indexPath)")
+            return
+        }
+
+        let controller = ViewControllerFactory.create(for: .filmDetails(.id(film.id)))
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 extension FilmListViewController: ViewModelDelegate {

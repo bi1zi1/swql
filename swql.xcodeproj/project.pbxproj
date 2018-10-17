@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5B4C2E0A13AB081EBE98A850 /* Pods_swql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E922E1D77421224FB97F7834 /* Pods_swql.framework */; };
+		60386EFD21768D4400035698 /* FilmDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386EFC21768D4400035698 /* FilmDetailsViewController.swift */; };
+		60386EFF21768D8A00035698 /* FilmDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386EFE21768D8A00035698 /* FilmDetailsViewModel.swift */; };
+		60386F012176922500035698 /* FilmDetailItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F002176922500035698 /* FilmDetailItemTableViewCell.swift */; };
+		60386F032176931200035698 /* FilmDetailActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F022176931200035698 /* FilmDetailActionTableViewCell.swift */; };
+		60386F052176989200035698 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F042176989200035698 /* ViewController.swift */; };
+		60386F0B2177BBF000035698 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F0A2177BBF000035698 /* ViewControllerFactory.swift */; };
 		60C4B3772176634F005443E2 /* FilmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B3762176634F005443E2 /* FilmListViewModel.swift */; };
 		60C4B379217665A1005443E2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B378217665A1005443E2 /* ViewModel.swift */; };
 		60C4B37B21766F25005443E2 /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */; };
@@ -44,6 +50,12 @@
 		20BD20BF45FF33C4339C162B /* Pods-swql.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swql.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swql/Pods-swql.debug.xcconfig"; sourceTree = "<group>"; };
 		27353CE9F534D6CC2766AAEC /* Pods_swqlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swqlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453B71BAD6E8F1BABF908651 /* Pods-swql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swql.release.xcconfig"; path = "Pods/Target Support Files/Pods-swql/Pods-swql.release.xcconfig"; sourceTree = "<group>"; };
+		60386EFC21768D4400035698 /* FilmDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailsViewController.swift; sourceTree = "<group>"; };
+		60386EFE21768D8A00035698 /* FilmDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailsViewModel.swift; sourceTree = "<group>"; };
+		60386F002176922500035698 /* FilmDetailItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailItemTableViewCell.swift; sourceTree = "<group>"; };
+		60386F022176931200035698 /* FilmDetailActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailActionTableViewCell.swift; sourceTree = "<group>"; };
+		60386F042176989200035698 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		60386F0A2177BBF000035698 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		60C4B3762176634F005443E2 /* FilmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewModel.swift; sourceTree = "<group>"; };
 		60C4B378217665A1005443E2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
@@ -97,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */,
+				60386F002176922500035698 /* FilmDetailItemTableViewCell.swift */,
+				60386F022176931200035698 /* FilmDetailActionTableViewCell.swift */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -105,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				60D9B11A216A959500473176 /* FilmListViewController.swift */,
+				60386EFC21768D4400035698 /* FilmDetailsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -121,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				60D19AE921752B6200CD4D2F /* StoryboardPresentable.swift */,
+				60386F042176989200035698 /* ViewController.swift */,
+				60386F0A2177BBF000035698 /* ViewControllerFactory.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -150,6 +167,7 @@
 			children = (
 				60C4B38021767045005443E2 /* Core */,
 				60C4B3762176634F005443E2 /* FilmListViewModel.swift */,
+				60386EFE21768D8A00035698 /* FilmDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -424,13 +442,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60386F012176922500035698 /* FilmDetailItemTableViewCell.swift in Sources */,
 				60D9B11B216A959500473176 /* FilmListViewController.swift in Sources */,
+				60386EFF21768D8A00035698 /* FilmDetailsViewModel.swift in Sources */,
+				60386F0B2177BBF000035698 /* ViewControllerFactory.swift in Sources */,
 				60D19ACF2173E61C00CD4D2F /* NetworkError.swift in Sources */,
+				60386EFD21768D4400035698 /* FilmDetailsViewController.swift in Sources */,
 				60D19AC92173C25400CD4D2F /* NetworkConfig.swift in Sources */,
 				60C4B379217665A1005443E2 /* ViewModel.swift in Sources */,
 				60D19AC72173C21000CD4D2F /* FilmClient.swift in Sources */,
 				60C4B3772176634F005443E2 /* FilmListViewModel.swift in Sources */,
+				60386F052176989200035698 /* ViewController.swift in Sources */,
 				60D9B14A216B740D00473176 /* API.swift in Sources */,
+				60386F032176931200035698 /* FilmDetailActionTableViewCell.swift in Sources */,
 				60D9B119216A959500473176 /* AppDelegate.swift in Sources */,
 				60D19AEA21752B6200CD4D2F /* StoryboardPresentable.swift in Sources */,
 				60C4B37B21766F25005443E2 /* FilmTableViewCell.swift in Sources */,
