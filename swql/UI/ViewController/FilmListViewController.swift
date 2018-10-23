@@ -18,6 +18,8 @@ class FilmListViewController: UIViewController, ViewController {
 
         tableView?.dataSource = self
         tableView?.delegate = self
+        tableView?.register(LoadingTableViewCell.self,
+                            forCellReuseIdentifier: LoadingTableViewCell.reuseIdentifier)
 
         configureAppearance()
     }
@@ -30,19 +32,26 @@ class FilmListViewController: UIViewController, ViewController {
 
 extension FilmListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.films.count ?? 0
+        return viewModel?.filmList.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let film = viewModel?.films[indexPath.row] else {
+        guard let film = viewModel?.filmList[indexPath.row] else {
             fatalError("No films for indexPath = \(indexPath)")
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: FilmTableViewCell.reuseIdentifier,
-                                                 for: indexPath) as! FilmTableViewCell
-        cell.configure(with: film)
-        return cell
+        switch film {
+        case .placeholder:
+            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingTableViewCell.reuseIdentifier,
+                                                     for: indexPath) as! LoadingTableViewCell
+            return cell
+        case .value(let filmData):
+            let cell = tableView.dequeueReusableCell(withIdentifier: FilmTableViewCell.reuseIdentifier,
+                                                     for: indexPath) as! FilmTableViewCell
+            cell.configure(with: filmData)
+            return cell
+        }
     }
 }
 
@@ -50,12 +59,14 @@ extension FilmListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
 
-        guard let film = viewModel?.films[indexPath.row] else {
-            assertionFailure("Missing film at indexPath = \(indexPath)")
-            return
+        guard let film = viewModel?.filmList[indexPath.row],
+            case DataType.value(let filmData) = film else {
+
+                assertionFailure("Missing film at indexPath = \(indexPath)")
+                return
         }
 
-        let controller = ViewControllerFactory.create(for: .filmDetails(.id(film.id)))
+        let controller = ViewControllerFactory.create(for: .filmDetails(.id(filmData.id)))
         navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -12,3 +12,8 @@ protocol ViewModelDelegate: AnyObject {
     func didChange(_ viewModel: ViewModel)
     func didFail(_ viewModel: ViewModel, with error: Error)
 }
+
+enum DataType<T> {
+    case value(T)
+    case placeholder
+}

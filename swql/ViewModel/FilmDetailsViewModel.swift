@@ -37,31 +37,39 @@ class FilmDetailsViewModel: ViewModel {
     }
     weak var delegate: ViewModelDelegate?
 
-    var title: String? {
-        return film.title
+    var title: String {
+        return film.title ?? "Coming Soon"
     }
-    var openingCrawl: String? {
-        return film.openingCrawl
+    var openingCrawl: String {
+        return film.openingCrawl ?? "\n\nComing Soon\n\nPlease Wait\n\n"
     }
-    var items: [FilmDetail] {
-        let episodeId: String?
-        if let filmEpisodeId = film.episodeId {
-            episodeId = String(filmEpisodeId)
-        } else {
-            episodeId = nil
+    var items: [DataType<FilmDetail>] {
+        var director: DataType<FilmDetail> = DataType.placeholder
+        var releaseDate: DataType<FilmDetail> = DataType.placeholder
+        var episodeId: DataType<FilmDetail> = DataType.placeholder
+        let characters = DataType.value(FilmDetail(type: .action(.characters),
+                                                   title: "Characters",
+                                                   value: film.id))
+
+        if let filmDirector = film.director {
+            director = DataType.value(FilmDetail(type: .info,
+                                                 title: "Director:",
+                                                 value: filmDirector))
         }
 
-        return [
-            FilmDetail(type: .info, title: "Director:", value: film.director ?? "n/a"),
-            FilmDetail(type: .info, title: "Release Date:", value: film.releaseDate ?? "n/a"),
-            FilmDetail(type: .info, title: "Episode:", value: episodeId ?? "n/a"),
-//            FilmDetail(type: .action(.species), title: "Species", value: film.id),
-            FilmDetail(type: .action(.characters), title: "Characters", value: film.id)
-        ]
-    }
+        if let filmReleaseDate = film.releaseDate {
+            releaseDate = DataType.value(FilmDetail(type: .info,
+                                                    title: "Release Date:",
+                                                    value: filmReleaseDate))
+        }
 
-    convenience init(filmId: GraphQLID, filmClient: FilmClient = FilmClient()) {
-        self.init(film: FilmClient.Film(id: filmId), filmClient: filmClient)
+        if let filmEpisodeId = film.episodeId {
+            episodeId = DataType.value(FilmDetail(type: .info,
+                                                  title: "Episode:",
+                                                  value: String(filmEpisodeId)))
+        }
+
+        return [director, releaseDate, episodeId, characters]
     }
 
     init(film: FilmClient.Film, filmClient: FilmClient = FilmClient()) {

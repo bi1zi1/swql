@@ -49,14 +49,6 @@ extension CharacterListViewController: UITableViewDataSource {
 extension CharacterListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-
-//        guard let film = viewModel?.films[indexPath.row] else {
-//            assertionFailure("Missing film at indexPath = \(indexPath)")
-//            return
-//        }
-//
-//        let controller = ViewControllerFactory.create(for: .filmDetails(.id(film.id)))
-//        navigationController?.pushViewController(controller, animated: true)
     }
 
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {

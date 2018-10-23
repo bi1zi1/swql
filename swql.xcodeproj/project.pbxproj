@@ -18,6 +18,7 @@
 		60386F152177DD6900035698 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F142177DD6900035698 /* CharacterTableViewCell.swift */; };
 		60386F172177DD7100035698 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F162177DD7100035698 /* CharacterListViewController.swift */; };
 		60386F1A2177E2D500035698 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F192177E2D500035698 /* UIScrollViewExtension.swift */; };
+		60386F2E217BD97100035698 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60386F2D217BD97100035698 /* LoadingTableViewCell.swift */; };
 		60C4B3772176634F005443E2 /* FilmListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B3762176634F005443E2 /* FilmListViewModel.swift */; };
 		60C4B379217665A1005443E2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B378217665A1005443E2 /* ViewModel.swift */; };
 		60C4B37B21766F25005443E2 /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */; };
@@ -64,6 +65,7 @@
 		60386F142177DD6900035698 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		60386F162177DD7100035698 /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		60386F192177E2D500035698 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		60386F2D217BD97100035698 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		60C4B3762176634F005443E2 /* FilmListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmListViewModel.swift; sourceTree = "<group>"; };
 		60C4B378217665A1005443E2 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		60C4B37C21766F64005443E2 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				60386F2D217BD97100035698 /* LoadingTableViewCell.swift */,
 				60C4B37A21766F25005443E2 /* FilmTableViewCell.swift */,
 				60386F002176922500035698 /* FilmDetailItemTableViewCell.swift */,
 				60386F022176931200035698 /* FilmDetailActionTableViewCell.swift */,
@@ -467,6 +470,7 @@
 				60386EFF21768D8A00035698 /* FilmDetailsViewModel.swift in Sources */,
 				60386F0B2177BBF000035698 /* ViewControllerFactory.swift in Sources */,
 				60386F172177DD7100035698 /* CharacterListViewController.swift in Sources */,
+				60386F2E217BD97100035698 /* LoadingTableViewCell.swift in Sources */,
 				60D19ACF2173E61C00CD4D2F /* NetworkError.swift in Sources */,
 				60386EFD21768D4400035698 /* FilmDetailsViewController.swift in Sources */,
 				60D19AC92173C25400CD4D2F /* NetworkConfig.swift in Sources */,

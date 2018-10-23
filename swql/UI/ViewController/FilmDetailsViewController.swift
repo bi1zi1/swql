@@ -19,6 +19,8 @@ class FilmDetailsViewController: UIViewController, ViewController {
 
         tableView?.dataSource = self
         tableView?.delegate = self
+        tableView?.register(LoadingTableViewCell.self,
+                            forCellReuseIdentifier: LoadingTableViewCell.reuseIdentifier)
 
         configureAppearance()
     }
@@ -41,23 +43,26 @@ extension FilmDetailsViewController: UITableViewDataSource {
             fatalError("No item for indexPath = \(indexPath)")
         }
 
-        let cell: UITableViewCell
-        switch filmDetail.type {
-        case .info:
-            cell = tableView.dequeueReusableCell(withIdentifier: FilmDetailItemTableViewCell.reuseIdentifier,
-                                                 for: indexPath)
-            if let cell = cell as? FilmDetailItemTableViewCell {
-                cell.configure(with: filmDetail)
+        switch filmDetail {
+        case .placeholder:
+            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingTableViewCell.reuseIdentifier,
+                                                     for: indexPath)
+            return cell
+        case .value(let film):
+            switch film.type {
+            case .info:
+                let cell = tableView.dequeueReusableCell(withIdentifier: FilmDetailItemTableViewCell.reuseIdentifier,
+                                                         for: indexPath) as! FilmDetailItemTableViewCell
+                cell.configure(with: film)
+                return cell
+            case .action:
+                let cell = tableView.dequeueReusableCell(withIdentifier: FilmDetailActionTableViewCell.reuseIdentifier,
+                                                         for: indexPath) as! FilmDetailActionTableViewCell
+                cell.configure(with: film)
+                return cell
             }
-        case .action:
-            cell = tableView.dequeueReusableCell(withIdentifier: FilmDetailActionTableViewCell.reuseIdentifier,
-                                                 for: indexPath)
-            if let cell = cell as? FilmDetailActionTableViewCell {
-                cell.configure(with: filmDetail)
-            }
-        }
 
-        return cell
+        }
     }
 }
 
@@ -70,7 +75,9 @@ extension FilmDetailsViewController: UITableViewDelegate {
             return
         }
 
-        if case .action(.characters) = filmDetail.type {
+        if case DataType.value(let film) = filmDetail,
+            case .action(.characters) = film.type {
+
             let controller = ViewControllerFactory.create(for: .characterList)
             navigationController?.pushViewController(controller, animated: true)
         }

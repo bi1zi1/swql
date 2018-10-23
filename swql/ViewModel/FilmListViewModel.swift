@@ -11,10 +11,11 @@ import Apollo
 
 final class FilmListViewModel: ViewModel {
     typealias FilmListError = NetworkError
+    typealias DataItem = DataType<FilmClient.ListItemFilm>
     
     private let filmClient: FilmClient
     private var filmsRequest: Cancellable?
-    private(set) var films = FilmClient.Films()  {
+    private var films = FilmClient.Films()  {
         didSet {
             DispatchQueue.main.async {
                 self.delegate?.didChange(self)
@@ -22,6 +23,19 @@ final class FilmListViewModel: ViewModel {
         }
     }
     weak var delegate: ViewModelDelegate?
+    private var loadingList: [DataItem] {
+        return Array(repeating: DataItem.placeholder, count: 20)
+    }
+    var filmList: [DataItem] {
+        switch films.count {
+        case ..<1:
+            return loadingList
+        default:
+            return films.compactMap { film in
+                DataType.value(film)
+            }
+        }
+    }
 
     init(filmClient: FilmClient = FilmClient()) {
         self.filmClient = filmClient
